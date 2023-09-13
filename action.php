@@ -13,8 +13,8 @@ if(isset($_POST["submit"])){
     $email = htmlspecialchars($_POST["email"]);
     $mdp = htmlspecialchars($_POST["mdp"]);
 
-// creer un nouveau utilisateur
-// créer une instance de la classe Utilisateur
+    // creer un nouveau utilisateur
+    // créer une instance de la classe Utilisateur
     $mdp = password_hash($mdp,PASSWORD_DEFAULT); 
     $utlisateur1 = new Utilisateur($nom,$prenom,$email,$mdp);
     $utlisateur1->inscription();
