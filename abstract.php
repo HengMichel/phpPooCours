@@ -37,8 +37,8 @@ class Pilote extends Person{
 // 1) Surface
 // 2) Perimètre
 abstract class FormeGeométrique{
-    public $surface;
-    public $perimetre;
+    protected $surface;
+    protected $perimetre;
 
     // le constructeur
     public function __construct($surface,$perimetre)
@@ -52,8 +52,8 @@ abstract class FormeGeométrique{
 // 1) longueur
 // 2) largeur et les méthodes calculerSurface et calculerPerimetre
 class Rectangle extends FormeGeométrique{
-    public $longueur;
-    public $largeur;
+    private $longueur;
+    private $largeur;
 
         // le constructeur
     public function __construct($surface,$perimetre,$longueur,$largeur)
@@ -63,10 +63,12 @@ class Rectangle extends FormeGeométrique{
         $this->largeur = $largeur;
     }
 
+    // les méthodes calculerSurface
     public function calculerSurface(){
         return  $this->surface=($this->longueur*$this->largeur);
     }
 
+    // les méthodes calculerPerimetre
     public function calculerPerimetre(){
         return  $this->perimetre=($this->longueur+$this->largeur)*2;
     }
@@ -86,18 +88,25 @@ echo "<br>";
 // créer la classe Cercle fille de FormeGeométrique avec les propriétées suivantes :
 // 1) rayon et les methodes calculerSurface et calculerPerimetre
 class Cercle extends  FormeGeométrique{
-    public $rayon;
+    private $rayon;
 
     public function __construct($surface,$perimetre,$rayon)
     {
         parent::__construct($surface,$perimetre);
         $this->rayon = $rayon;
     }
+    // methodes calculerSurface
     public function calculerSurface(){
+        // pow = puissance et 2 = au carré
+        return round ($this->surface=M_PI* pow($this->rayon,2));
+
+        // round permet d'avoir seulement 2 chiffres après la virgule
         return round(($this->surface=($this->rayon*$this->rayon)*M_PI),2) ;
+
     }
+    // les méthodes calculerPerimetre
     public function calculerPerimetre(){
-        return  round(($this->perimetre=($this->rayon*2)*M_PI),2);
+        return  round($this->perimetre=(2*M_PI)*$this->rayon);
     }
 
 }
