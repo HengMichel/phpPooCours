@@ -29,11 +29,6 @@ class CompteBancaire{
         return $this->solde;
     }
 
-     // creer un geter qui permet de recuperer le solde du compte
-    //  public function getNom(){
-    //     return $this->nom;
-    // }
-
     // créer une méthode déposer qui prend 1 paramètre :
     // le montant à déposer pour ajouter la somme dans le compte concerné
 
